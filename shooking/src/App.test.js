@@ -45,13 +45,13 @@ test('제목 렌더링 완료', ()=>{
   expect(titleEl).toBeInTheDocument();
 });
 
-test('상품 개수 정상적으로 표시', ()=>{
+test('상품 개수 정상적으로 표시 완료', ()=>{
   render(<App shoes={shoes}/>);
   const countEl = screen.getByText(/현재 6개의 상품이 있습니다./i);
   expect(countEl).toBeInTheDocument();
 });
 
-test('상품 개수만큼 상품 카드 표시', ()=>{
+test('상품 개수만큼 상품 카드 표시 완료', ()=>{
   render(<App/>);
   const cardEl = screen.getAllByRole('img');
   expect(cardEl.length).toBe(shoes.length);
