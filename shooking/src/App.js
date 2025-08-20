@@ -1,5 +1,17 @@
 import './App.css';
 
+function ShoeCard({shoe}){
+  return (
+    <div className='card'>
+      <img src={shoe.image} alt={shoe.brand}/>
+      <h3>{shoe.brand}</h3>
+      <p>{shoe.description}</p>
+      <p>{shoe.price}원</p>
+      <button>담기</button>
+    </div>
+  );
+}
+
 function App() {
   //상품 목록 데이터
   const shoes = [{
@@ -50,13 +62,7 @@ function App() {
 
       <div className='card-container'>
         {shoes.map((shoe, index) => (
-          <div key={index} className='card'>
-            <img src={shoe.image} alt={shoe.brand}/>
-            <h3>{shoe.brand}</h3>
-            <p>{shoe.description}</p>
-            <p>{shoe.price}원</p>
-            <button>담기</button>
-          </div>
+          <ShoeCard key={index} shoe={shoe}/>
         ))}
       </div>
     </div>
