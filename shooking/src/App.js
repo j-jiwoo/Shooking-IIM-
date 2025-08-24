@@ -5,11 +5,14 @@ function ShoeCard({shoe, toggleCart, isInCart}){
   return (
     <div className='card'>
       <img src={shoe.image} alt={shoe.brand}/>
-      <h3>{shoe.brand}</h3>
-      <p>{shoe.description}</p>
+      <h2>{shoe.brand}</h2>
+      <h3>{shoe.description}</h3>
       <p>{shoe.price}원</p>
-      <button onClick={() => toggleCart(shoe)}>
-        {isInCart ? '담김!': '담기!'}
+      <button 
+        className={`btn ${isInCart ? 'in-cart' : ''}`}
+        onClick={() => toggleCart(shoe)}
+      >
+        {isInCart ? "담김!" : "담기!"}
       </button>
     </div>
   );

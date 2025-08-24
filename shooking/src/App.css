@@ -1,60 +1,160 @@
-.app-header{
+/* 기본 앱 스타일 */
+.App {
+    text-align: left;
+    padding: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+/* 헤더 */
+.app-header {
     background-color: black;
-    height: 50px;
+    height: 56px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 0 16px;
-    position: stichy; /*상단 고정*/
+    position: sticky;
     top: 0;
     z-index: 100;
 }
 
+/* 장바구니 아이콘 */
 .cart-icon {
-    font-size: 24px;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
 }
 
-.App{
-    text-align: left;
-    padding: 20px;
-    font-family: sans-serif;
+.cart-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
-.card-container{
+.cart-icon span {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: white;
+    color: black;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 제목 및 문단 */
+h1 {
+    font-size: 22px;
+    margin: 16px 0 8px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* 상품 카드 레이아웃zzz */
+.card-container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);   /*2열 구조*/
+    grid-template-columns: repeat(2, 1fr); /* 2컬럼 고정 */
     gap: 16px;
-    margin-top: 20px;
-    justify-items: center;
+    margin-top: 16px;
 }
 
-.card{
-    width: 180px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 10px;
+/* 카드 스타일 */
+.card {
+    border: 1px solid #eee;
+    border-radius: 16px;
     background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 360px; /* 카드 높이 고정 */
+    overflow: hidden; /* 이미지 잘리는 영역 숨김 */
 }
 
 .card img {
     width: 100%;
-    height: auto;
-    border-radius: 6px;
+    height: 180px; /* 카드 상단 이미지 영역 */
+    object-fit: cover; /* 카드 영역에 맞춰 이미지 잘림 */
+    border-radius: 16px 16px 0 0; /* 카드 상단과 동일하게 둥글기 */
+    display: block;
+    flex-shrink: 0;
+}
+
+.card h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 12px;
 }
 
 .card h3 {
-    margin: 8px 0 4px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #7c7a7a;
+    margin: 0 12px 12px 12px;
+    flex-grow: 1;
 }
 
 .card p {
-    margin: 4px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    margin: 0 12px 12px 12px;
+    flex-grow: 1;
 }
 
-.card button {
-    margin-top: 8px;
-    padding: 6px 12px;
-    background: black;
-    color: white;
+/* 버튼 스타일 */
+.btn {
+    float: left;
+    width: 28%;
+    padding: 8px 16px;           /* pill 모양 크기 */
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;         /* 둥근 버튼 */
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 24px 12px 12px;    /* 카드 왼쪽 하단 배치 */
+    background: black;           /* 기본 검정 */
+    color: white;                /* 기본 흰색 글씨 */
+}
+
+/* hover 시 */
+.btn:hover {
+    background: #333;
+}
+
+/* 장바구니에 담겼을 때 버튼 스타일 */
+.btn.in-cart {
+    background: #ddd; /* 회색 */
+    color: black;     /* 글씨 검정 */
+}
+
+.btn.in-cart:hover {
+    background: #bbb;
+}
+
+/* 모바일 대응 */
+@media screen and (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 2fr; /* 2컬럼으로 변경 */
+        gap: 12px;
+    }
+    
+    .card {
+        height: auto; /* 모바일에서는 콘텐츠 높이에 맞춤 */
+    }
+
+    .card img {
+        height: 180px; /* 이미지 크기는 동일 유지 */
+    }
 }
