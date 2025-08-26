@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import './Main.css';
 
 function ShoeCard({shoe, toggleCart, isInCart}){
   return (
@@ -18,7 +18,7 @@ function ShoeCard({shoe, toggleCart, isInCart}){
   );
 }
 
-function App() {
+function Main() {
   //상품 목록 데이터
   const shoes = [{
     id: 1,
@@ -84,8 +84,8 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      <header className='app-header'>
+    <div className='Main'>
+      <header className='main-header'>
         <div className="cart-icon">
           <img src='/cart.png' alt="장바구니"/>
           {cart.length > 0 && <span>{cart.length}</span>}
@@ -108,4 +108,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;

@@ -1,5 +1,5 @@
 /* 기본 앱 스타일 */
-.App {
+.Main {
     text-align: left;
     padding: 16px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -8,7 +8,7 @@
 }
 
 /* 헤더 */
-.app-header {
+.main-header {
     background-color: black;
     height: 56px;
     display: flex;
